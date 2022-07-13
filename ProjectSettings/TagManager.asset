@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Items
+  - Background
+  - Collision
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Walls
   - Floors
   - 
-  - 
+  - Collision
   - 
   - 
   - 
