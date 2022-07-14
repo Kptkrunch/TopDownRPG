@@ -18,16 +18,18 @@ public class PlayerController : MonoBehaviour
     void Update() {
         Run();
         FlipSprite();
-        
-        print($"Move input Vector {_moveInput}");
-        playerAnimator.SetFloat("Horizontal", _moveInput.x);
-        playerAnimator.SetFloat("Vertical", _moveInput.y);
-        playerAnimator.SetFloat("MoveSpeed", _moveInput.sqrMagnitude);
+        AnimationUpdater();
     }
 
-    public void OnMove(InputValue value) {
+    private void OnMove(InputValue value) {
 
         _moveInput = value.Get<Vector2>();
+    }
+
+    public void OnFire()
+    {
+        //playerAnimator.Play("PlayerBrandish");
+        print("heck yah, time for adventure!!!");
     }
 
     // Player actions
@@ -44,6 +46,13 @@ public class PlayerController : MonoBehaviour
         if(playerHasHorizontalSpeed) {
             transform.localScale = new Vector2(Mathf.Sign(playerRb2D.velocity.x), 1.0f);
         }
+    }
+
+    void AnimationUpdater()
+    {
+        playerAnimator.SetFloat("Horizontal", _moveInput.x);
+        playerAnimator.SetFloat("Vertical", _moveInput.y);
+        playerAnimator.SetFloat("MoveSpeed", _moveInput.sqrMagnitude);
     }
 }
 
