@@ -6100,6 +6100,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1676109217 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2484013955678166940, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+  m_PrefabInstance: {fileID: 2484013955495846079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765204809
 GameObject:
   m_ObjectHideFlags: 0
@@ -7136,12 +7141,48 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5477307149356756323}
     m_Modifications:
+    - target: {fileID: 2484013955678166936, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 971408025, guid: 193fee6c155092046aeafa1af5eae68a, type: 3}
+    - target: {fileID: 2484013955678166936, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484013955678166936, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484013955678166937, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7308b333d2dd4e8438708da60b585322, type: 2}
+    - target: {fileID: 2484013955678166938, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166938, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_Actions
       value: 
       objectReference: {fileID: -944628639613478452, guid: 5602c5d27990f3b4aa4814967789bdd2, type: 3}
+    - target: {fileID: 2484013955678166938, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166939, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: animator
+      value: 
+      objectReference: {fileID: 1061044006}
+    - target: {fileID: 2484013955678166939, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: runSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484013955678166939, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: playerRb2D
+      value: 
+      objectReference: {fileID: 1676109217}
+    - target: {fileID: 2484013955678166939, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
+      propertyPath: playerAnimator
       value: 
       objectReference: {fileID: 1061044006}
     - target: {fileID: 2484013955678166940, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
@@ -7166,19 +7207,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166941, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_Size.x
-      value: 0.69925594
+      value: 0.525105
       objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166941, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_Size.y
-      value: 1.1082675
+      value: 0.87606597
       objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166941, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_Offset.x
-      value: 0.030074596
+      value: -0.057000875
       objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166941, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_Offset.y
-      value: -0.11428273
+      value: -0.027207121
       objectReference: {fileID: 0}
     - target: {fileID: 2484013955678166942, guid: 45e840e74fc9b804998ae6be2aad2b27, type: 3}
       propertyPath: m_RootOrder

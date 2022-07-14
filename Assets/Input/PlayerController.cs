@@ -1,58 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
 
-    Vector2 moveInput;
-    Rigidbody2D playerRB2D;
-    Animator playerAnimator;
+    private Vector2 _moveInput;
+    public Rigidbody2D playerRb2D;
+    public Animator playerAnimator;
 
     void Start() {
-        playerRB2D = GetComponent<Rigidbody2D>();
+        playerRb2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
     }
 
     void Update() {
         Run();
         FlipSprite();
+        
+        print($"Move input Vector {_moveInput}");
+        playerAnimator.SetFloat("Horizontal", _moveInput.x);
+        playerAnimator.SetFloat("Vertical", _moveInput.y);
+        playerAnimator.SetFloat("MoveSpeed", _moveInput.sqrMagnitude);
     }
 
-    void OnMove(InputValue value) {
+    public void OnMove(InputValue value) {
 
-        moveInput = value.Get<Vector2>();
+        _moveInput = value.Get<Vector2>();
     }
 
     // Player actions
     void Run() {   
         
-        Vector2 playerVelocity = new Vector2 (moveInput.x * runSpeed, moveInput.y * runSpeed);
-        playerRB2D.velocity = playerVelocity;
-
-        if(Mathf.Abs(playerRB2D.velocity.x) > Mathf.Epsilon) {
-            playerAnimator.SetBool("isMoving", true);
-        } else {
-            playerAnimator.SetBool("isMoving", false);
-        }
-        
-        if(Mathf.Abs(playerRB2D.velocity.y) > Mathf.Epsilon) {
-            //playerAnimator.SetBool("isMoving", true);
-            playerAnimator.SetBool("isRunningUp", true);
-        } else {
-            //playerAnimator.SetBool("isMoving", false);
-            playerAnimator.SetBool("isRunningUp", false);
-        }
+        Vector2 playerVelocity = new Vector2 (_moveInput.x * runSpeed, _moveInput.y * runSpeed);
+        playerRb2D.velocity = playerVelocity;
     }
 
     // Sprite functionality
     void FlipSprite() {
-        bool playerHasHorizontalSpeed = Mathf.Abs(playerRB2D.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(playerRb2D.velocity.x) > Mathf.Epsilon;
 
         if(playerHasHorizontalSpeed) {
-            transform.localScale = new Vector2(Mathf.Sign(playerRB2D.velocity.x), 1.0f);
+            transform.localScale = new Vector2(Mathf.Sign(playerRb2D.velocity.x), 1.0f);
         }
     }
 }
+
