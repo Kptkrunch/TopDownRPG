@@ -95,7 +95,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 400
   nextWaypointDistance: 3
-  enemyFacing: {fileID: 0}
+  enemyFacing: {fileID: 5763184488323539692}
 --- !u!50 &5763184486746281563
 Rigidbody2D:
   serializedVersion: 4
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 5763184488323539692}
   - component: {fileID: 5763184488323539695}
   - component: {fileID: 5763184488323539694}
-  - component: {fileID: 5763184488323539693}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
@@ -223,16 +222,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5763184488323539693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763184488323539603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102d742c178c63542b1b2026adea9c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPath: {fileID: 0}
