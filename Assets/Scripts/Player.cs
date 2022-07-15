@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Vector2 _moveInput;
+    [SerializeField] private float moveSpeed = 1f;
 
     private BoxCollider2D _boxCollider2D;
-
     private RaycastHit2D _hit;
 
     void Start()
@@ -19,24 +19,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
         FlipSprite();
-
-        _hit = Physics2D.BoxCast(transform.position, _boxCollider2D.size, 0, new Vector2(0, _moveInput.y),
-            Mathf.Abs(_moveInput.y * Time.deltaTime), LayerMask.GetMask("Actor", "Collision"));
-        if (!_hit.collider)
-        {
-            transform.Translate(0, _moveInput.y * Time.deltaTime, 0);
-        }
-        
-        _hit = Physics2D.BoxCast(transform.position, _boxCollider2D.size, 0, new Vector2(_moveInput.x, 0),
-            Mathf.Abs(_moveInput.x * Time.deltaTime), LayerMask.GetMask("Actor", "Collision"));
-        if (!_hit.collider)
-        {
-            transform.Translate(_moveInput.x * Time.deltaTime, 0, 0);
-        }
-        
-
+        PlayerMovement();
     }
 
     void OnMove(InputValue value)
@@ -47,6 +31,23 @@ public class Player : MonoBehaviour
     void OnFire()
     {
         
+    }
+
+    private void PlayerMovement()
+    {
+        _hit = Physics2D.BoxCast(transform.position, _boxCollider2D.size, 0, new Vector2(0, _moveInput.y),
+            Mathf.Abs(_moveInput.y * Time.deltaTime), LayerMask.GetMask("Actor", "Collision"));
+        if (!_hit.collider)
+        {
+            transform.Translate(0, _moveInput.y * Time.deltaTime * moveSpeed, 0);
+        }
+        
+        _hit = Physics2D.BoxCast(transform.position, _boxCollider2D.size, 0, new Vector2(_moveInput.x, 0),
+            Mathf.Abs(_moveInput.x * Time.deltaTime), LayerMask.GetMask("Actor", "Collision"));
+        if (!_hit.collider)
+        {
+            transform.Translate(_moveInput.x * Time.deltaTime * moveSpeed, 0, 0);
+        }
     }
 
     private void FlipSprite()
