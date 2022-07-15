@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveInput;
     public Rigidbody2D playerRb2D;
     public Animator playerAnimator;
+    private BoxCollider2D _boxCollider2D;
 
     void Start() {
         playerRb2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update() {
@@ -34,7 +36,9 @@ public class PlayerController : MonoBehaviour
     // Player actions
     void Run() {   
         
-        Vector2 playerVelocity = new Vector2 (_moveInput.x * runSpeed, _moveInput.y * runSpeed);
+        Vector2 playerVelocity = new Vector2 (_moveInput.x * (runSpeed * Time.deltaTime),
+                                                _moveInput.y * (runSpeed * Time.deltaTime));
+        
         playerRb2D.velocity = playerVelocity;
     }
 
