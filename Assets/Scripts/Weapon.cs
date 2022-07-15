@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Weapon : MonoBehaviour
 {
-	public int damagePoint = 1;
+	public int damagePoints = 1;
 	public float pushForce = 2.0f;
 	
 	// upgrade
-	public int weaponLevel = 0;
+	//public int weaponLevel = 0;
 	private SpriteRenderer _spriteRenderer;
 	
 	// Swing
@@ -35,9 +36,17 @@ public class Weapon : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
-			// collision.gameObject.SendMessage("ApplyDamage", 10);
+			collision.gameObject.SendMessage("ApplyDamage", 10);
 			Debug.Log("Wap!!!");
 		}
+		
+
+		Damage dmg = gameObject.AddComponent<Damage>();
+		dmg.damageAmount = damagePoints;
+		dmg.origin = transform.position;
+		dmg.pushForce = 1f;
+		Debug.Log(collision.gameObject.name);
+		collision.gameObject.SendMessage("ReceiveDamage", dmg);
 	}
 
 	private void Swing()

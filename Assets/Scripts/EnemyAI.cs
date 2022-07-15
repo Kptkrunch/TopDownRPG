@@ -1,7 +1,5 @@
 using UnityEngine;
 using Pathfinding;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
 	private Path _path;
 	private int _currentWaypoint = 0;
-	public bool reachedEndOfPath = false;
+	bool _reachedEndOfPath;
 
 	private Seeker _seeker;
 	private Rigidbody2D _enemyRb2D;
@@ -24,7 +22,7 @@ public class EnemyAI : MonoBehaviour
 	{
 		_seeker = GetComponent<Seeker>();
 		_enemyRb2D = GetComponent<Rigidbody2D>();
-		
+		_reachedEndOfPath = false;
 		InvokeRepeating(nameof(UpdatePath), 0f, .5f);
 		_seeker.StartPath(_enemyRb2D.position, target.position, OnPathComplete);
 	}
@@ -54,12 +52,12 @@ public class EnemyAI : MonoBehaviour
 
 		if (_currentWaypoint >= _path.vectorPath.Count)
 		{
-			reachedEndOfPath = true;
+			_reachedEndOfPath = true;
 			return;
 		}
 		else
 		{
-			reachedEndOfPath = false;
+			_reachedEndOfPath = false;
 		}
 
 		Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _enemyRb2D.position).normalized;
