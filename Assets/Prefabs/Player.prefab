@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cada75f787d45647b6705726168026d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
+  runSpeed: 18.51
   playerRb2D: {fileID: 0}
   playerAnimator: {fileID: 0}
 --- !u!50 &2484013955678166940

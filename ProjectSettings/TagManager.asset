@@ -13,35 +13,35 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - System
   - Water
   - UI
   - 
+  - Floors
+  - Walls
+  - Items
   - 
   - Enemy
-  - Items
-  - Walls
-  - Floors
   - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Collision
-  - System
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - Actor
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -10,10 +10,9 @@ public class EnemyAI : MonoBehaviour
 
 	public Transform enemyFacing;
 	
-
 	private Path _path;
 	private int _currentWaypoint = 0;
-	bool _reachedEndOfPath;
+	private bool _reachedEndOfPath;
 
 	private Seeker _seeker;
 	private Rigidbody2D _enemyRb2D;
