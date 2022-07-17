@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
 	public Transform enemyFacing;
 	
 	private Path _path;
-	private int _currentWaypoint = 0;
+	private int _currentWaypoint;
 	private bool _reachedEndOfPath;
 
 	private Seeker _seeker;
