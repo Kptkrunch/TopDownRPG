@@ -1,18 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class WeaponParent : MonoBehaviour
 {
 	public Vector2 PointerPosition { get; set; }
 	private Vector3 _difference;
 	private Vector2 _mouseDirection;
 	private SpriteRenderer _spriteRenderer;
+	private Animator _swordAnimator;
 	private Weapon _weapon;
+
+	
+	
 	
 	private void Awake()
 	{
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		_weapon = GetComponentInChildren<Weapon>();
+		_swordAnimator = GetComponentInChildren<Animator>();
+
+	}
+
+	private void Update()
+	{
+		Attack();
 	}
 
 	// Weapons facing based on mouse position
@@ -42,14 +54,15 @@ public class WeaponParent : MonoBehaviour
 		_spriteRenderer.flipY = swordFacing;
 	}
 
-	public void Attack()
+	private void Attack()
 	{
+
 		if (Mouse.current.leftButton.wasPressedThisFrame)
-		{
-			Debug.Log("testing OnFire");
-
+		{	
+			_swordAnimator.ResetTrigger("Attack");
+			Debug.Log("testing Attack");
+			_swordAnimator.SetTrigger("Attack");
 		}
-
 	}
 }
 

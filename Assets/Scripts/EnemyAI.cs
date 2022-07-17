@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 	
 	private Path _path;
 	private int _currentWaypoint;
-	private bool _reachedEndOfPath;
+	public bool reachedEndOfPath;
 
 	private Seeker _seeker;
 	private Rigidbody2D _enemyRb2D;
@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
 	{
 		_seeker = GetComponent<Seeker>();
 		_enemyRb2D = GetComponent<Rigidbody2D>();
-		_reachedEndOfPath = false;
+		reachedEndOfPath = false;
 		InvokeRepeating(nameof(UpdatePath), 0f, .5f);
 		_seeker.StartPath(_enemyRb2D.position, target.position, OnPathComplete);
 	}
@@ -51,12 +51,12 @@ public class EnemyAI : MonoBehaviour
 
 		if (_currentWaypoint >= _path.vectorPath.Count)
 		{
-			_reachedEndOfPath = true;
+			reachedEndOfPath = true;
 			return;
 		}
 		else
 		{
-			_reachedEndOfPath = false;
+			reachedEndOfPath = false;
 		}
 
 		Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _enemyRb2D.position).normalized;
