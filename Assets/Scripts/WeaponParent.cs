@@ -10,11 +10,14 @@ public class WeaponParent : MonoBehaviour
 	private Vector2 _mouseDirection;
 	private SpriteRenderer _spriteRenderer;
 	private Animator _swordAnimator;
+	private CircleCollider2D _hitbox;
 	
 	private void Awake()
 	{
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		_swordAnimator = GetComponentInChildren<Animator>();
+		_hitbox = GetComponentInChildren<HitBox>().GetComponent<CircleCollider2D>();
+		Debug.Log($"hitbox {_hitbox}");
 	}
 
 	private void Update()
@@ -55,7 +58,6 @@ public class WeaponParent : MonoBehaviour
 		{
 			_swordAnimator.ResetTrigger("HeavyAttack");
 			_swordAnimator.SetTrigger("HeavyAttack");
-			return;
 		}
 
 		if (Mouse.current.leftButton.wasPressedThisFrame)

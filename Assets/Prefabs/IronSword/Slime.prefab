@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 5873719113838168684}
   - component: {fileID: 5873719113838168686}
   - component: {fileID: 5873719113838168674}
-  - component: {fileID: 2195880474592793540}
   - component: {fileID: 2195880474592793543}
   m_Layer: 11
   m_Name: Slime
@@ -225,18 +224,6 @@ MonoBehaviour:
   nextWaypointDistance: 3
   enemyFacing: {fileID: 5873719112192114395}
   reachedEndOfPath: 0
---- !u!114 &2195880474592793540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873719113838168681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebabed7fef00d334f970443c7b0a612e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2195880474592793543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +236,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96d2af76c5d9d44092b48e8fed9f43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: 10
-  maxHitPoints: 10
-  pushRecoverySpeed: 0.2

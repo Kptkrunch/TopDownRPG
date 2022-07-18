@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class HealthSystem
+public class HealthSystem : MonoBehaviour, IDamageable
 {
 	private int _health;
 	private int _maxHealth;
