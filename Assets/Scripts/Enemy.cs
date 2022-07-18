@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using Update = Unity.VisualScripting.Update;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -9,11 +6,13 @@ public class Enemy : MonoBehaviour, IDamageable
 	private int _enemyMaxHealth = 20;
 	private bool _isDead;
 	private Animator _animator;
+	private Rigidbody2D _enemyRb2D;
 
 	private void Start()
 	{
 		_isDead = false;
 		_animator = GetComponentInChildren<Animator>();
+		_enemyRb2D = GetComponent<Rigidbody2D>();
 	}
 
 	private void Update()
@@ -37,6 +36,8 @@ public class Enemy : MonoBehaviour, IDamageable
 		Debug.Log($"ouch I took {dmg} damage");
 	}
 
+
+
 	public void HealDamage(int heal)
 	{
 		_enemyHealth += heal;
@@ -46,7 +47,11 @@ public class Enemy : MonoBehaviour, IDamageable
 		}
 		Debug.Log($"Ahhhh much better, you were healed for {heal} health");
 	}
-	
+
+	public void LaunchEnemy(Vector2 launchDirection, int hitForce)
+	{
+		_enemyRb2D.AddForce(launchDirection * hitForce);
+	}
 }
 
 

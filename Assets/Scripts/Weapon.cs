@@ -1,27 +1,18 @@
-using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class Weapon : MonoBehaviour
 {
-	public int damagePoints = 1;
-	public float pushForce = 2.0f;
+	public int damage = 6;
+	public int hitForce = 200;
+	
 	private SpriteRenderer _spriteRenderer;
-	private EdgeCollider2D _edgeCollider;
+	private HitBox _hitBox; // the hit-box child tied to this weapon
 
 	protected void Start()
 	{
 		_spriteRenderer = GetComponent<SpriteRenderer>();
-		_edgeCollider = GetComponent<EdgeCollider2D>();
-	}
-
-	private void Update()
-	{
-	}
-
-	private void OnTriggerStay2D(Collider2D other)
-	{
-		
-		Debug.Log("Trigger hit");
+		_hitBox = GetComponentInChildren<HitBox>();
+		_hitBox.attackDamage = damage;
+		_hitBox.hitForce = hitForce;
 	}
 }

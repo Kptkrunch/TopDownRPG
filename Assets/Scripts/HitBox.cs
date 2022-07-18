@@ -1,15 +1,31 @@
-using Cinemachine;
 using UnityEngine;
 
 public class HitBox : MonoBehaviour
 { 
-    private void OnTriggerStay2D(Collider2D other)
+    IDamageable hit;
+    
+    Vector2 _enemyPosition; 
+    Vector2 _hitboxPosition;
+    Vector2 _launchDirection;
+
+    public int attackDamage;
+    public int hitForce;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        IDamageable hit = other.GetComponent<IDamageable>();
+        Debug.Log(hitForce);
+        Debug.Log(attackDamage);
+        _enemyPosition = other.transform.position;
+        _hitboxPosition = gameObject.transform.position;
+        _launchDirection = (_hitboxPosition - _enemyPosition).normalized;
+        hit = other.GetComponent<IDamageable>();
+
+        Debug.Log($"launch angle: {_launchDirection}");
         if (other.CompareTag("Enemy") && hit != null)
         {
-            Debug.Log($"this is the other object {hit}");
-            hit.TakeDamage(10);
+            hit.TakeDamage(attackDamage);
+            hit.LaunchEnemy(_launchDirection, hitForce);
+            
         }
     }
 }
