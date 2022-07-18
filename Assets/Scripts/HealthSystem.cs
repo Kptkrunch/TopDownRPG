@@ -26,6 +26,7 @@ public class HealthSystem
 		{
 			_health = 0;
 		}
+		Debug.Log(dmg);
 	}
 
 	public void HealDamage(int heal)

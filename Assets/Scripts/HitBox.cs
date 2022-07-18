@@ -1,28 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+  
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        IDamageable hit = other.GetComponent<IDamageable>();
+        if (other.CompareTag("Enemy") && hit != null)
         {
-            Debug.Log("Other hit");
-            Debug.Log($"this is the other object {other.ToString()}");
-            other.attachedRigidbody.AddForce(2f * other.attachedRigidbody.velocity);
+            Debug.Log($"this is the other object {hit}");
+            //other.SendMessage("TakeDamage", 10);
+            hit.TakeDamage(10);
+            hit.HealDamage(5);
+
         }
     }
 }

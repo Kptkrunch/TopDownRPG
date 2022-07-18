@@ -1,39 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime : MonoBehaviour, IDamageable
 {
-	public int hitpoints = 10;
-	public int maxHitPoints = 10;
-	public float pushRecoverySpeed = .2f;
-
-	protected float immuneTime = 1.0f;
-	protected float lastImmune;
-
-	protected Vector3 pushDirection;
-
-	protected virtual void ReceiveDamage(Damage dmg)
+	private HealthSystem _healthSystem;
+	public int enemyHealth = 20;
+	private void Start()
 	{
-		if (Time.time - lastImmune > immuneTime)
-		{
-			lastImmune = Time.time;
-			hitpoints -= dmg.damageAmount;
-			pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;
-				
-			//instance.ShowText(dmg.damageAmount.ToString(), 15, Color.red, transform.position, Vector3.zero, 0.5f);
-			
-			if (hitpoints <= 0)
-			{
-				hitpoints = 0;
-				Death();
-			}
-		}
+		_healthSystem = new HealthSystem(enemyHealth);
 	}
-
-	protected virtual void Death()
+	public void HealDamage(int dmg)
 	{
-		
+		Debug.Log($"health restored{dmg}");
+		_healthSystem.HealDamage(dmg);
+	}
+	public void TakeDamage(int dmg)
+	{
+		Debug.Log(dmg);
+		_healthSystem.TakeDamage(dmg);
 	}
 }
 
