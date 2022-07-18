@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2b700c0c7a24f74eabab0902d11f707
+guid: 4d3398c6bfd20164b9f723ee06a447f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,19 +107,19 @@ TextureImporter:
     physicsShape: []
     bones:
     - name: ArmBone
-      guid: 6b1e1ae6c9f547d44aef093acf9c3678
-      position: {x: 13.932142, y: 13.849261, z: 0}
-      rotation: {x: 0, y: 0, z: 0.38268366, w: 0.92387944}
-      length: 5.5133195
+      guid: 2574905ee6b8cbb49bd436c00fd21f36
+      position: {x: 12.976116, y: 12.726892, z: 0}
+      rotation: {x: 0, y: 0, z: 0.3900031, w: 0.92081356}
+      length: 7.402425
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278190335
     - name: BladeBone
-      guid: 0f572eadb67bffd4999e13ab89b999d2
-      position: {x: 5.5133195, y: -0.0000005574261, z: 0}
-      rotation: {x: 0, y: 0, z: 0.0000006143802, w: 1}
-      length: 39.260773
+      guid: ed284fd80d6515c44986cf45bcb6b5e5
+      position: {x: 7.402425, y: -0.000000694278, z: 0}
+      rotation: {x: 0, y: 0, z: -0.0035167944, w: 0.99999386}
+      length: 39.828648
       parentId: 0
       color:
         serializedVersion: 2
@@ -246,7 +246,7 @@ TextureImporter:
       boneIndex[1]: 0
       boneIndex[2]: 0
       boneIndex[3]: 0
-    - weight[0]: 0.99999994
+    - weight[0]: 1
       weight[1]: 0
       weight[2]: 0
       weight[3]: 0

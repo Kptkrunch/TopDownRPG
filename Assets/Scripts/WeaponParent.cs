@@ -5,21 +5,16 @@ using UnityEngine.InputSystem;
 public class WeaponParent : MonoBehaviour
 {
 	public Vector2 PointerPosition { get; set; }
+
 	private Vector3 _difference;
 	private Vector2 _mouseDirection;
 	private SpriteRenderer _spriteRenderer;
 	private Animator _swordAnimator;
-	private Weapon _weapon;
-
-	
-	
 	
 	private void Awake()
 	{
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-		_weapon = GetComponentInChildren<Weapon>();
 		_swordAnimator = GetComponentInChildren<Animator>();
-
 	}
 
 	private void Update()
@@ -56,11 +51,16 @@ public class WeaponParent : MonoBehaviour
 
 	private void Attack()
 	{
+		if (Mouse.current.rightButton.wasPressedThisFrame)
+		{
+			_swordAnimator.ResetTrigger("HeavyAttack");
+			_swordAnimator.SetTrigger("HeavyAttack");
+			return;
+		}
 
 		if (Mouse.current.leftButton.wasPressedThisFrame)
 		{	
 			_swordAnimator.ResetTrigger("Attack");
-			Debug.Log("testing Attack");
 			_swordAnimator.SetTrigger("Attack");
 		}
 	}

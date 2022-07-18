@@ -32,10 +32,10 @@ public class PlayerController : MonoBehaviour
 
         _moveInput = value.Get<Vector2>();
     }
-    public void OnFire()
-    {
-        print("heck yah, time for adventure!!!");
-    }
+    // public void OnFire()
+    // {
+    //     print("heck yah, time for adventure!!!");
+    // }
     // Player actions
     void Run() {
         Vector2 playerVelocity = new Vector2 (_moveInput.x * runSpeed, _moveInput.y * runSpeed);
