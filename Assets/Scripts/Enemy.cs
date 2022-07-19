@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour, IDamageable
 	private bool _isDead;
 	private Animator _animator;
 	private Rigidbody2D _enemyRb2D;
+	private DamageText _damageText;
 
-	private void Start()
+	private void Awake()
 	{
 		_isDead = false;
 		_animator = GetComponentInChildren<Animator>();
 		_enemyRb2D = GetComponent<Rigidbody2D>();
+		_damageText = gameObject.AddComponent<DamageText>();
 	}
 
 	private void Update()
@@ -20,24 +22,21 @@ public class Enemy : MonoBehaviour, IDamageable
 		if (_isDead)
 		{
 			_animator.SetTrigger("isDead");
-			Debug.Log("oof I'm dead");
+			Debug.Log("bloop bloop POP!!!......DEAD!!");
 			Destroy(gameObject, .5f);
 		}
 	}
 
 	public void TakeDamage(int dmg)
 	{
-		_enemyHealth -= dmg;
+		Debug.Log($"incoming Damage: {dmg}");
 		if (_enemyHealth < 0)
 		{
 			_enemyHealth = 0;
 			_isDead = true;
-		}
-		Debug.Log($"ouch I took {dmg} damage");
+		} 
 	}
-
-
-
+	
 	public void HealDamage(int heal)
 	{
 		_enemyHealth += heal;
@@ -48,9 +47,16 @@ public class Enemy : MonoBehaviour, IDamageable
 		Debug.Log($"Ahhhh much better, you were healed for {heal} health");
 	}
 
-	public void LaunchEnemy(Vector2 launchDirection, int hitForce)
+	public void LaunchEnemy(Vector2 force)
 	{
-		_enemyRb2D.AddForce(launchDirection * hitForce);
+		_enemyRb2D.AddForce(force, ForceMode2D.Impulse);
+	}
+
+	public void Setup(int dmg)
+	{
+		_damageText.Setup(dmg);
+		_damageText.DisplayDamageText(transform.position);
+		Debug.Log($"setup completed");
 	}
 }
 

@@ -9,6 +9,7 @@ TagManager:
   - Collision
   - Wall
   - Enemy
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -63,4 +64,7 @@ TagManager:
     locked: 0
   - name: RegularWalls
     uniqueID: 3753353453
+    locked: 0
+  - name: UI
+    uniqueID: 2275165075
     locked: 0

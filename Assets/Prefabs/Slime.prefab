@@ -171,7 +171,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 0.5
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a68fb6fd4a25704ab77c88c094a3a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1221415901761664438, guid: 2cfdda7ab808f49438930bdfd27ad44f, type: 3}
   speed: 400
   nextWaypointDistance: 3
   enemyFacing: {fileID: 8837932268590698778}

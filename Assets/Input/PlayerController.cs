@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D playerRb2D;
     public Animator playerAnimator;
     private WeaponParent _weaponParent;
+    public Animator weaponAnimator;
 
     void Start() {
         playerRb2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         _weaponParent = GetComponentInChildren<WeaponParent>();
+        weaponAnimator = _weaponParent.GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate() {
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
         GetSetPointerPosition();        
         AnimationUpdater();
         FlipSprite();
+        _weaponParent.Attack();
     }
 
     // Input Listeners

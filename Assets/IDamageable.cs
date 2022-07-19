@@ -4,5 +4,6 @@ public interface IDamageable
 {
 	void HealDamage(int healAmount);
 	void TakeDamage(int damageAmount);
-	void LaunchEnemy(Vector2 launchDirection, int launchPower);
+	void LaunchEnemy(Vector2 force);
+
 }

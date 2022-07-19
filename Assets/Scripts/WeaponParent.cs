@@ -17,11 +17,6 @@ public class WeaponParent : MonoBehaviour
 		_swordAnimator = GetComponentInChildren<Animator>();
 	}
 
-	private void Update()
-	{
-		Attack();
-	}
-
 	// Weapons facing based on mouse position
 	private void PointToMouse()
 	{
@@ -49,7 +44,7 @@ public class WeaponParent : MonoBehaviour
 		_spriteRenderer.flipY = swordFacing;
 	}
 
-	private void Attack()
+	public void Attack()
 	{
 		if (Mouse.current.rightButton.wasPressedThisFrame)
 		{
